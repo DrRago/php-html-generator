@@ -1,10 +1,11 @@
 # PHP HTML GENERATOR
 
-Create HTML tags and render them efficiently.
+Forked project to support current php coding standards and syntax.
 
-Build status:
-* Master [![Build Status](https://travis-ci.org/Airmanbzh/php-html-generator.svg?branch=master)](https://travis-ci.org/Airmanbzh/php-html-generator)
-* Dev [![Build Status](https://travis-ci.org/Airmanbzh/php-html-generator.svg?branch=dev)](https://travis-ci.org/Airmanbzh/php-html-generator)
+This project is forked from https://github.com/Airmanbzh/php-html-generator.  
+Original author: https://github.com/Airmanbzh
+
+Create HTML tags and render them efficiently.
 
 ## Overview
 

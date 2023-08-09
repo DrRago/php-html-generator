@@ -1,14 +1,13 @@
 {
-	"name": "airmanbzh/php-html-generator",
+	"name": "drrago/php-html-generator",
 	"type": "package",
 	"description": "PHP html generator",
 	"keywords": ["generator", "html", "php"],
-	"homepage": "https://github.com/Airmanbzh/php-html-generator",
+	"homepage": "https://github.com/DrRago/php-html-generator",
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "LE BOULC'H Brice",
-			"email": "airmanbzh@gmail.com",
+			"name": "DrRago",
 			"role": "Developer"
 		}
 	],
@@ -19,7 +18,7 @@
 		"psr-4": { "HtmlGenerator\\Tests\\": "tests/" }
 	},
 	"support": {
-		"issues": "https://github.com/Airmanbzh/php-html-generator/issues"
+		"issues": "https://github.com/DrRago/php-html-generator/issues"
 	},
 	"require": {
 		"php": ">=8.0"
