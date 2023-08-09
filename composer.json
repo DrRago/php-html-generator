@@ -22,6 +22,9 @@
 		"issues": "https://github.com/Airmanbzh/php-html-generator/issues"
 	},
 	"require": {
-		"php": ">=5.3.0"
+		"php": ">=8.0"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "10"
 	}
 }

@@ -2,20 +2,20 @@
 /*
  * @author Airmanbzh
  */
+
 namespace HtmlGenerator;
 
 if (!defined('ENT_HTML5')) {
     define('ENT_HTML5', 48);
 }
 
-class HtmlTag extends Markup
-{
+class HtmlTag extends Markup {
     /**
      * @var int The language convention used for XSS avoiding
      */
-    public static $outputLanguage = ENT_HTML5;
+    public static int $outputLanguage = ENT_HTML5;
 
-    protected $autocloseTagsList = array(
+    protected array $autocloseTagsList = array(
         'img', 'br', 'hr', 'input', 'area', 'link', 'meta', 'param', 'base', 'col', 'command', 'keygen', 'source'
     );
 
@@ -24,8 +24,7 @@ class HtmlTag extends Markup
      * @param string $value
      * @return HtmlTag instance
      */
-    public function id($value)
-    {
+    public function id(string $value): HtmlTag {
         return $this->set('id', $value);
     }
 
@@ -34,8 +33,7 @@ class HtmlTag extends Markup
      * @param string $value
      * @return HtmlTag instance
      */
-    public function addClass($value)
-    {
+    public function addClass(string $value): static {
         if (!isset($this->attributeList['class']) || is_null($this->attributeList['class'])) {
             $this->attributeList['class'] = array();
         }
@@ -48,8 +46,7 @@ class HtmlTag extends Markup
      * @param string $value
      * @return HtmlTag instance
      */
-    public function removeClass($value)
-    {
+    public function removeClass(string $value): static {
         if (!is_null($this->attributeList['class'])) {
             unset($this->attributeList['class'][array_search($value, $this->attributeList['class'])]);
         }
