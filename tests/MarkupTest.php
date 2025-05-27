@@ -51,9 +51,10 @@ class MarkupTest extends \PHPUnit\Framework\TestCase
 
     public function testGetParent()
     {
-        $div = \Markup::createElement('div')
-            ->addElement('p')
-            ->addElement('a')->parent
+        $div = HtmlGenerator\Markup::createElement('div')
+			->addElement('p')
+			->addElement('a')
+			->getParent()
 			->addElement('a');
 
         $this->assertEquals($div, '<div><p><a></a><a></a></p></div>');
@@ -61,9 +62,10 @@ class MarkupTest extends \PHPUnit\Framework\TestCase
 
     public function testGetFirst()
     {
-        $div = \Markup::createElement('div')
-            ->addElement('p')
-            ->addElement('a')->parent
+        $div = HtmlGenerator\Markup::createElement('div')
+			->addElement('p')
+			->addElement('a')
+			->getParent()
 			->addElement('a')
 			->getFirst()
 			->text('test');
@@ -73,9 +75,12 @@ class MarkupTest extends \PHPUnit\Framework\TestCase
 
     public function testGetLast()
     {
-        $div = \Markup::createElement('div')
-            ->addElement('p')
-            ->addElement('a')->parent
+        $div = HtmlGenerator\Markup::createElement('div')
+			->addElement('p')
+			->addElement('a')
+			->getParent()
+			->addElement('a')
+			->getParent()
 			->addElement('a')
 			->getFirst()
 			->getLast()
@@ -86,9 +91,12 @@ class MarkupTest extends \PHPUnit\Framework\TestCase
 
     public function testGetPrevious()
     {
-        $div = \Markup::createElement('div')
-            ->addElement('p')
-            ->addElement('a')->parent
+        $div = HtmlGenerator\Markup::createElement('div')
+			->addElement('p')
+			->addElement('a')
+			->getParent()
+			->addElement('a')
+			->getParent()
 			->addElement('a')
 			->getPrevious()
 			->text('test');
@@ -98,9 +106,12 @@ class MarkupTest extends \PHPUnit\Framework\TestCase
 
     public function testGetNext()
     {
-        $div = \Markup::createElement('div')
-            ->addElement('p')
-            ->addElement('a')->parent
+        $div = HtmlGenerator\Markup::createElement('div')
+			->addElement('p')
+			->addElement('a')
+			->getParent()
+			->addElement('a')
+			->getParent()
 			->addElement('a')
 			->getFirst()
 			->getNext()

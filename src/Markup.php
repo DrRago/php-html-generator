@@ -25,11 +25,7 @@ class Markup implements ArrayAccess {
     protected static ?Markup $instance = null;
 
     protected ?Markup $top = null;
-    public Markup|HtmlTag|null $parent = null {
-        get {
-            return $this->parent;
-        }
-    }
+    public Markup|HtmlTag|null $parent = null;
 
     protected mixed $tag = null;
     public ?array $attributeList = null;
@@ -89,7 +85,7 @@ class Markup implements ArrayAccess {
      * @return Markup|null
      */
     public function __invoke(): ?Markup {
-        return $this->parent;
+        return $this->getParent();
     }
 
     /**
@@ -204,6 +200,14 @@ class Markup implements ArrayAccess {
      */
     public function getTop(): ?static {
         return $this->top === null ? $this : $this->top;
+    }
+
+    /**
+     *
+     * Return parent of current element
+     */
+    public function getParent(): ?Markup {
+        return $this->parent;
     }
 
     /**
