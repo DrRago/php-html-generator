@@ -51,10 +51,9 @@ class MarkupTest extends \PHPUnit\Framework\TestCase
 
     public function testGetParent()
     {
-        $div = HtmlGenerator\Markup::createElement('div')
-			->addElement('p')
-			->addElement('a')
-			->getParent()
+        $div = \Markup::createElement('div')
+            ->addElement('p')
+            ->addElement('a')->parent
 			->addElement('a');
 
         $this->assertEquals($div, '<div><p><a></a><a></a></p></div>');
@@ -62,10 +61,9 @@ class MarkupTest extends \PHPUnit\Framework\TestCase
 
     public function testGetFirst()
     {
-        $div = HtmlGenerator\Markup::createElement('div')
-			->addElement('p')
-			->addElement('a')
-			->getParent()
+        $div = \Markup::createElement('div')
+            ->addElement('p')
+            ->addElement('a')->parent
 			->addElement('a')
 			->getFirst()
 			->text('test');
@@ -75,12 +73,9 @@ class MarkupTest extends \PHPUnit\Framework\TestCase
 
     public function testGetLast()
     {
-        $div = HtmlGenerator\Markup::createElement('div')
-			->addElement('p')
-			->addElement('a')
-			->getParent()
-			->addElement('a')
-			->getParent()
+        $div = \Markup::createElement('div')
+            ->addElement('p')
+            ->addElement('a')->parent
 			->addElement('a')
 			->getFirst()
 			->getLast()
@@ -91,12 +86,9 @@ class MarkupTest extends \PHPUnit\Framework\TestCase
 
     public function testGetPrevious()
     {
-        $div = HtmlGenerator\Markup::createElement('div')
-			->addElement('p')
-			->addElement('a')
-			->getParent()
-			->addElement('a')
-			->getParent()
+        $div = \Markup::createElement('div')
+            ->addElement('p')
+            ->addElement('a')->parent
 			->addElement('a')
 			->getPrevious()
 			->text('test');
@@ -106,12 +98,9 @@ class MarkupTest extends \PHPUnit\Framework\TestCase
 
     public function testGetNext()
     {
-        $div = HtmlGenerator\Markup::createElement('div')
-			->addElement('p')
-			->addElement('a')
-			->getParent()
-			->addElement('a')
-			->getParent()
+        $div = \Markup::createElement('div')
+            ->addElement('p')
+            ->addElement('a')->parent
 			->addElement('a')
 			->getFirst()
 			->getNext()

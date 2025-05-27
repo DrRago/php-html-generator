@@ -25,7 +25,11 @@ class Markup implements ArrayAccess {
     protected static ?Markup $instance = null;
 
     protected ?Markup $top = null;
-    protected Markup|HtmlTag|null $parent = null;
+    public Markup|HtmlTag|null $parent = null {
+        get {
+            return $this->parent;
+        }
+    }
 
     protected mixed $tag = null;
     public ?array $attributeList = null;
@@ -44,7 +48,7 @@ class Markup implements ArrayAccess {
      * @param Markup|null $top
      * @return static instance
      */
-    protected function __construct(mixed $tag, Markup $top = null) {
+    protected function __construct(mixed $tag, ?Markup $top = null) {
         $this->tag = $tag;
         $this->top =& $top;
         $this->attributeList = array();
@@ -85,7 +89,7 @@ class Markup implements ArrayAccess {
      * @return Markup|null
      */
     public function __invoke(): ?Markup {
-        return $this->getParent();
+        return $this->parent;
     }
 
     /**
@@ -119,7 +123,7 @@ class Markup implements ArrayAccess {
      * @param string|null $value
      * @return static instance
      */
-    public function set(array|string $attribute, string $value = null): Markup {
+    public function set(array|string $attribute, ?string $value = null): Markup {
         if (is_array($attribute)) {
             foreach ($attribute as $key => $value) {
                 $this[$key] = $value;
@@ -136,7 +140,7 @@ class Markup implements ArrayAccess {
      * @param string|null $value
      * @return static instance
      */
-    public function attr(array|string $attribute, string $value = null): Markup {
+    public function attr(array|string $attribute, ?string $value = null): Markup {
         return call_user_func_array(array($this, 'set'), func_get_args());
     }
 
@@ -200,14 +204,6 @@ class Markup implements ArrayAccess {
      */
     public function getTop(): ?static {
         return $this->top === null ? $this : $this->top;
-    }
-
-    /**
-     *
-     * Return parent of current element
-     */
-    public function getParent(): ?Markup {
-        return $this->parent;
     }
 
     /**
